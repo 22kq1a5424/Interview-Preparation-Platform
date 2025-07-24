@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accenture Interview Prep</title> <!-- Updated title for clarity -->
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Global Box Sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Custom Font and Body Styling */
+        body {
+            font-family: 'Inter', sans-serif; /* Keeping 'Inter' for consistency */
+            background-color: #f3f4f6; /* Light gray background */
+            color: #374151; /* Dark gray text */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures body takes full viewport height for sticky footer */
+        }
+
+        html {
+            scroll-behavior: smooth;
+            height: 100%; /* Ensures html takes full viewport height */
+        }
+
+        /* Navbar Styling (from your provided code, adjusted slightly for responsiveness) */
+       .navbar {
+     height: 60px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 32px;
+      width: 32px;
+    }
+
+    .logo span {
+      font-size: 20px;
+      font-weight: bold;
+      color: #007bff;;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color:  #007bff;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+     .logout-btn {
+      cursor: pointer;
+      font-weight: 500;
+      color: #0d6efd;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .logout-btn:hover {
+      background: #e8eaf6;
+    }
+        /* Card Styling */
+        .card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Content Area (for main content, ensures space for footer) */
+        .main-content-wrapper {
+            flex-grow: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        /* Footer Styling */
+          footer {
+      background-color: #212121;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #fbc02d;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+   
+
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-section {
+                margin-bottom: 20px;
+            }
+            .nav-links {
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            .nav-links a {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+    <div class="navbar-left">
+      <div class="logo">
+        <img src="/images/logo.png" alt="Logo" />
+        <span>INPRA</span>
+      </div>
+      <div class="nav-links">
+        <a href="book-slot.html">Book a Slot</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="logout-btn" onclick="logout()">Logout</div>
+  </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-content-wrapper">
+        <div class="container max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
+            <header class="text-center mb-10">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-black">
+                    Accenture
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 italic">
+                    "Conquer complex challenges, become the Accenture leader of tomorrow."
+                </p>
+            </header>
+
+            <section class="mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- HR Interview Questions Card -->
+                    <div class="card bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg shadow-md border border-green-200 flex flex-col items-center text-center">
+                        <h2 class="text-2xl font-bold text-green-800 mb-4">HR Interview Questions</h2>
+                        <p class="text-gray-700 mb-6">
+                            Prepare for common human resources and behavioral questions to ace your personality and fit assessment.
+                        </p>
+                        <a href="AccentureHR.html" class="inline-block px-8 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition duration-300 shadow-lg">
+                            Start HR Prep
+                        </a>
+                    </div>
+
+                    <!-- Technical Interview Questions Card -->
+                    <div class="card bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-lg shadow-md border border-purple-200 flex flex-col items-center text-center">
+                        <h2 class="text-2xl font-bold text-purple-800 mb-4">Technical Interview Questions</h2>
+                        <p class="text-gray-700 mb-6">
+                            Brush up on your core technical skills and coding challenges specific to the role.
+                        </p>
+                        <a href="AccentureTECH.html" class="inline-block px-8 py-3 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-700 transition duration-300 shadow-lg">
+                            Start Technical Prep
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            
+                <a href="practice.html" class="text-blue-600 hover:text-blue-800 font-semibold text-lg">
+                    &larr; Back to Companies
+                </a>
+          
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+    &copy; 2025 Inpra. All rights reserved.
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms & Conditions</a>
+  </footer>
+
+    <script>
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      alert("You have been logged out!");
+      window.location.href = 'login.html';
+    }
+    
+    function logout() {
+        localStorage.removeItem("loggedInUser");
+        window.location.href = "login.html";
+      }
+    
+  </script>
+</body>
+</html>

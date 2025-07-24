@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms and Conditions - INPRA</title>
+ <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+    }
+
+    .navbar {
+     height: 60px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 32px;
+      width: 32px;
+    }
+
+    .logo span {
+      font-size: 20px;
+      font-weight: bold;
+      color: #007bff;;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color:  #007bff;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+     .logout-btn {
+      cursor: pointer;
+      font-weight: 500;
+      color: #0d6efd;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .logout-btn:hover {
+      background: #e8eaf6;
+    }
+    
+   footer {
+      background-color: #212121;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #fbc02d;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+   
+
+  body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      animation: slideUp 0.7s ease-in-out;
+      margin-top: 70px;
+    }
+
+    h2 {
+      color: #2c3e50;
+      margin-top: 1.5rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.content {
+  min-height: 80vh; /* leave space for footer */
+  padding: 20px;
+}
+
+
+
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        justify-content: space-around;
+        text-align: left;
+      }
+    }
+
+  </style>
+</head>
+<body>
+ 
+
+
+    <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <div class="logo">
+        <img src="/images/logo.png" alt="Logo" />
+        <span>INPRA</span>
+      </div>
+      <div class="nav-links">
+        <a href="practice.html">Practice</a>
+        <a href="book-slot.html">Book a Slot</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="logout-btn" onclick="logout()">Logout</div>
+  </div>
+
+
+
+<div class="container">
+<center>
+<h1>Privacy Policy</h1>
+</center>
+
+  <h2>1. Information We Collect</h2>
+  <ul>
+    <li>Personal Details (Name, Email, Contact Info)</li>
+    <li>Login Credentials (Encrypted)</li>
+    <li>Interview Data (Questions, Responses, Feedback)</li>
+    <li>Browser & Device Info (IP, Location, OS)</li>
+  </ul>
+
+  <h2>2. How We Use Your Information</h2>
+  <ul>
+    <li>To provide and manage interviews and bookings</li>
+    <li>To improve platform performance and user experience</li>
+    <li>To communicate updates and support</li>
+    <li>For security, fraud detection, and legal compliance</li>
+  </ul>
+
+  <h2>3. Data Sharing & Disclosure</h2>
+  <p>We do not sell or rent your data. We may share data with trusted partners (like payment gateways or analytics tools) only to serve platform functionality or legal purposes.</p>
+
+  <h2>4. Security Measures</h2>
+  <p>Your data is stored securely using encryption, secure servers, and access controls. We regularly audit our systems for potential vulnerabilities.</p>
+
+  <h2>5. Cookies & Tracking</h2>
+  <p>Inpra uses cookies to personalize your experience and track usage metrics. You can manage cookie settings in your browser anytime.</p>
+
+  <h2>6. Your Rights</h2>
+  <ul>
+    <li>Access or correct your data</li>
+    <li>Request deletion of your data</li>
+    <li>Withdraw consent for data usage</li>
+  </ul>
+
+
+  
+
+
+ 
+  <script>
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      alert("You have been logged out!");
+      window.location.href = 'login.html';
+    }
+    
+    function logout() {
+        localStorage.removeItem("loggedInUser");
+        window.location.href = "login.html";
+      }
+    
+  </script>
+</body>
+</html>

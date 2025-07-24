@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book a Slot - Inline Interview</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: linear-gradient(to right, #fce4ec, #e3f2fd);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-top: 80px; /* for navbar */
+    }
+
+    .navbar {
+      height: 60px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 36px;
+      width: 36px;
+    }
+
+    .logo span {
+      font-size: 20px;
+      font-weight: bold;
+      color: #0d6efd;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #0d6efd;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: #0d6efd;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .logout-btn {
+      cursor: pointer;
+      font-weight: 500;
+      color: #0d6efd;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .logout-btn:hover {
+      background: #e8eaf6;
+    }
+
+    .slot-form {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+      animation: slideIn 0.6s ease;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #0d6efd;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: #444;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 6px rgba(13, 110, 253, 0.4);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #0a58ca;
+    }
+
+    footer {
+      background-color: #212121;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #fbc02d;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <div class="logo">
+        <img src="/images/logo.png" alt="Logo" />
+        <span>INPRA</span>
+      </div>
+      <div class="nav-links">
+        <a href="practice.html">Practice</a>
+        <a href="book-slot.html">Book a Slot</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="logout-btn" onclick="logout()">Logout</div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+    <div class="slot-form">
+      <h2>Book a Slot</h2>
+      <form id="slotForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="date">Select Date</label>
+          <input type="date" id="date" required />
+        </div>
+
+        <div class="form-group">
+          <label for="time">Select Time Slot</label>
+          <select id="time" required>
+            <option value="">-- Choose --</option>
+            <option>10:00 AM - 11:00 AM</option>
+            <option>11:30 AM - 12:30 PM</option>
+            <option>2:00 PM - 3:00 PM</option>
+            <option>4:00 PM - 5:00 PM</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Inpra. All rights reserved.
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms & Conditions</a>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+  document.getElementById("slotForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const userId = localStorage.getItem("loggedInUserId");
+    if (!userId) {
+      alert("User not logged in!");
+      return;
+    }
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+
+    const slotDateTime = date + "T" + convertTo24Hour(time); // e.g. 2025-06-13T10:00
+
+    const data = {
+      topic: "General Interview", // or let user choose topic
+      slotDateTime: slotDateTime,
+      status: "PENDING",
+      user: {
+        id: parseInt(userId)
+      }
+    };
+
+    try {
+      const response = await fetch("http://localhost:8080/api/slots/book", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        alert("Slot booked successfully!");
+        document.getElementById("slotForm").reset();
+      } else {
+        alert("Booking failed.");
+      }
+    } catch (error) {
+      alert("Error occurred while booking.");
+      console.error(error);
+    }
+  });
+
+  function convertTo24Hour(time) {
+    const [t, meridian] = time.split(" ");
+    let [hour, minute] = t.split(":").map(Number);
+
+    if (meridian === "PM" && hour !== 12) hour += 12;
+    if (meridian === "AM" && hour === 12) hour = 0;
+
+    return `${hour.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")}:00`;
+  }
+
+  function logout() {
+    localStorage.removeItem("loggedInUserId");
+    window.location.href = "login.html";
+  }
+</script>
+  
+
+</body>
+</html>

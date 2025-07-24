@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Interview Questions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Global Box Sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Custom Font and Body Styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937; /* Darker gray for general body text */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            height: 100%;
+        }
+
+        /* Content Area (for main content, ensures space for footer) */
+        .main-content-wrapper {
+            flex-grow: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        /* FAQ specific styling */
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .faq-question {
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* Multicolor gradient for questions */
+            background: linear-gradient(to right, #ef4444, #f97316, #eab308, #22c55e, #3b82f6, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent; /* Makes the text color transparent to show the background clip */
+        }
+
+        .faq-answer {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #1f2937; /* Darker gray for HR answers, consistent with body */
+            display: none; /* Hidden by default */
+            line-height: 1.6;
+            padding-right: 20px; /* Add some right padding for answer text */
+            max-height: 200px; /* Added max-height */
+            overflow-y: auto; /* Added vertical scrollbar if content exceeds max-height */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        }
+
+        .arrow {
+            font-size: 20px;
+            transition: transform 0.3s; /* Smooth transition for rotation */
+            display: inline-block; /* Essential for transform to work correctly */
+        }
+
+        .faq-item.open .faq-answer {
+            display: block; /* Show the answer when the 'open' class is active */
+        }
+
+        .faq-item.open .arrow {
+            transform: rotate(180deg); /* Rotate the arrow when the 'open' class is active */
+        }
+
+        /* Scrolling Heading Styles (for Accenture) */
+        .scrolling-heading-container {
+            width: 100%; /* Take full width of its parent */
+            overflow: hidden; /* Hide overflowing text */
+            white-space: nowrap; /* Prevent text from wrapping */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            margin-top: 0.5rem; /* Reduced space */
+            margin-bottom: 0.5rem; /* Reduced space */
+            text-align: center; /* Center the container to help with perceived alignment */
+        }
+
+        .scrolling-heading-text {
+            display: inline-block; /* Essential for animation */
+            padding-left: 100%; /* Start the text off-screen to the right */
+            animation: scrollText 20s linear infinite; /* Increased duration to slow down (from 10s to 20s) */
+            font-size: 3rem; /* Increased size for Accenture */
+            font-weight: bold; /* Bold as requested */
+            color: #3b82f6; /* Bright blue color (Tailwind blue-500) */
+        }
+
+        /* Main HR Interview Questions Heading */
+        .main-hr-heading {
+            font-size: 1.875rem; /* Reduced size for HR Interview Questions (text-3xl equivalent) */
+            font-weight: extrabold;
+            color: black;
+            margin-bottom: 1rem; /* Adjust margin as needed */
+        }
+
+        @keyframes scrollText {
+            0% {
+                transform: translateX(100%); /* Start fully off-screen right */
+            }
+            100% {
+                transform: translateX(-100%); /* End fully off-screen left */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-section {
+                margin-bottom: 20px;
+            }
+            .nav-links {
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            .nav-links a {
+                margin: 0 10px;
+            }
+            .scrolling-heading-text {
+                animation-duration: 12s; /* Adjust faster scroll on smaller screens */
+                font-size: 2rem; /* Further adjust font size for mobile */
+            }
+            .main-hr-heading {
+                font-size: 1.5rem; /* Further adjust HR heading size for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-content-wrapper">
+        <div class="container max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
+            <header class="text-center mb-10">
+                <div class="scrolling-heading-container">
+                    <span class="scrolling-heading-text">Google</span>
+                </div>
+                <h1 class="main-hr-heading">
+                    HR Interview Questions
+                </h1>
+            </header>
+
+            <section class="mb-12">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Tell me about yourself.
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>This is a classic opener. Focus on a brief overview of your professional background, key skills, and what makes you a good fit for this role. Structure it like: present, past, future. "Currently, I'm a [your role] at [company] where I [briefly describe key responsibility/achievement]. Before that, I [mention relevant experience]. I'm looking for a role like this because [explain how it aligns with your career goals]."</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Why do you want to work for our company?
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Show that you've done your research. Mention specific aspects of the company's mission, values, products, projects, or culture that resonate with you. Connect your personal values and career goals to what the company offers. "I'm drawn to [Company Name] because of its commitment to [specific value, e.g., innovation, sustainability] and your recent work on [mention a specific project or product]. My experience in [your skill] aligns well with your needs, and I'm excited by the opportunity to contribute to..."</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What are your strengths?
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Choose 2-3 strengths relevant to the job and back them up with brief examples. Think about soft skills like problem-solving, communication, teamwork, adaptability, or specific technical skills. "One of my greatest strengths is problem-solving. In my previous role, I encountered [problem], and by [action], I was able to [positive result]."</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What are your weaknesses?
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>This is a tricky one. Choose a genuine weakness that isn't critical to the job, and, most importantly, explain what you're doing to improve it. Avoid clichés like "I'm a perfectionist." "Sometimes, I tend to take on too many tasks. I've been working on improving my delegation skills and using project management tools to better organize my workload, which has significantly improved my efficiency."</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Where do you see yourself in 5 years?
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>This isn't about giving a specific job title but showing your ambition and how it aligns with growth opportunities at the company. "In five years, I aim to be a recognized expert in [area relevant to the job], consistently contributing to impactful projects. I hope to take on more leadership responsibilities and mentor junior colleagues, all within a dynamic and innovative environment like [Company Name]."</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you have any questions for me?
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Always have questions prepared! This shows engagement. Ask about team dynamics, company culture, challenges of the role, next steps in the hiring process, or opportunities for growth. "What are the key priorities for someone in this role in the first 90 days? How does your team typically collaborate on projects? What's your favorite part about working at [Company Name]?"</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="text-center mt-10">
+                <div class="flex justify-between items-center w-full">
+                    <a href="practice.html" class="text-blue-600 hover:text-blue-800 font-semibold text-lg">
+                        &larr; Back to Companies 
+                    </a>
+                    <a href="goocompany.html" class="text-blue-600 hover:text-blue-800 font-semibold text-lg">
+                        &larr; Back to Google
+                    </a>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const faqItem = question.closest('.faq-item');
+                    faqItem.classList.toggle('open');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

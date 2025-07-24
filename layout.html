@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inline Interview Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #f4f6f8;
+      scroll-behavior: smooth;
+    }
+
+    .navbar {
+      height: 60px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: relative;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 36px;
+      width: 36px;
+    }
+
+    .logo span {
+      font-size: 20px;
+      font-weight: bold;
+      color: #0d6efd;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      margin-left: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #0d6efd;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: #0d6efd;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .user-icon {
+      width: 40px;
+      height: 40px;
+      background: #eee;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 60px;
+      right: 30px;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      display: none;
+      overflow: hidden;
+      z-index: 1000;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 12px 20px;
+      text-decoration: none;
+      color: #333;
+      transition: background 0.3s;
+    }
+
+    .dropdown a:hover {
+      background: #f1f1f1;
+    }
+
+    .content {
+      flex: 1;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4rem 5%;
+      background-color: #f8f9fa;
+      flex-wrap: wrap;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .hero-content {
+      flex: 1 1 50%;
+      max-width: 600px;
+      padding-right: 2rem;
+    }
+
+    .hero-content h1 {
+      font-weight: 800;
+      font-size: 40px;
+      font-family: 'Times New Roman', serif;
+      color: #333;
+    }
+
+    .hero-content h1 span {
+      color: #007bff;
+    }
+
+    .hero-content h3 {
+      font-family: 'Times New Roman', serif;
+      margin-top: 1rem;
+      color: #444;
+    }
+
+    .login-btn {
+      background-color: green;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      text-decoration: none;
+      border-radius: 6px;
+      display: inline-block;
+      margin-top: 1.5rem;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .login-btn:hover {
+      background-color: #0c7c0c;
+      transform: scale(1.05);
+    }
+
+    .hero img {
+      max-width: 350px;
+      flex: 1 1 40%;
+      animation: zoomIn 1s ease;
+    }
+
+    /* ABOUT SECTION */
+    .about {
+      background-color: white;
+      padding: 60px 5%;
+      text-align: center;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .about h2 {
+      font-size: 36px;
+      color: #0d6efd;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      font-size: 18px;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: #212121;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #fbc02d;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <div class="logo">
+        <img src="/images/logo.png" alt="Logo" />
+        <span>INPRA</span>
+      </div>
+      <div class="nav-links">
+        <a href="layout.html">Home</a>
+        <a href="register.html">Register</a>
+        <a href="login.html">Login</a>
+        
+      </div>
+    </div>
+    <div class="user-icon" id="userIcon">👤</div>
+    <div class="dropdown" id="userDropdown">
+      <a href="login.html">Sign In</a>
+      <a href="register.html">Register</a>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <div class="content">
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Welcome, Start your Interview Prep By <span>INPRA</span></h1>
+        <h3>INPRA: Real Company Questions, Smart Categorization, Prep Sharp, all at one Click.</h3>
+        <a href="login.html" class="login-btn">Explore…</a>
+      </div>
+      <img src="/images/Interview-prep.png" alt="Interview Preparation" />
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about">
+      <h2>About Us</h2>
+      <p>
+        Inpra is your smart companion for cracking tech interviews. Whether you're preparing for product-based companies or startups, we bring you real company questions, categorized smartly, with instant access and personalized insights. 
+        Our mission is to simplify your prep, sharpen your practice, and get you hired faster.
+      </p>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Inpra. All rights reserved.
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms & Conditions</a>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    const userIcon = document.getElementById("userIcon");
+    const dropdown = document.getElementById("userDropdown");
+
+    userIcon.addEventListener("click", () => {
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+
+    
+    window.addEventListener("click", (e) => {
+      if (!userIcon.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>

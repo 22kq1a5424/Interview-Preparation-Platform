@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Prep Platform</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Global Box Sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Custom Font and Body Styling */
+        body {
+            font-family: 'Inter', sans-serif; /* Keeping 'Inter' for consistency */
+            background-color: #f3f4f6; /* Light gray background */
+            color: #374151; /* Dark gray text */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures body takes full viewport height for sticky footer */
+        }
+
+        html {
+            scroll-behavior: smooth;
+            height: 100%; /* Ensures html takes full viewport height */
+        }
+
+        /* Navbar Styling (from your provided code, adjusted slightly for responsiveness) */
+        .navbar {
+     height: 60px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 32px;
+      width: 32px;
+    }
+
+    .logo span {
+      font-size: 20px;
+      font-weight: bold;
+      color: #007bff;;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color:  #007bff;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+     .logout-btn {
+      cursor: pointer;
+      font-weight: 500;
+      color: #0d6efd;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .logout-btn:hover {
+      background: #e8eaf6;
+    }
+    
+        
+
+        /* Logo Card Styling (from previous versions) */
+        .logo-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            height: 150px; /* Fixed height for consistent card size */
+            width: 150px; /* Fixed width for consistent card size */
+            padding: 0; /* Remove padding to ensure logo fills completely */
+            overflow: hidden; /* Ensure rounded corners clip the image */
+            display: flex; /* Use flexbox to center image within card */
+            align-items: center;
+            justify-content: center;
+            background-color: #f9fafb; /* Light background for the card itself */
+            border-radius: 0.75rem; /* Consistent border radius */
+            border: 1px solid #e5e7eb; /* Light border */
+        }
+        .logo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            border-color: #60a5fa; /* Blue border on hover */
+        }
+        .logo-card img {
+            width: 100%; /* Make image fill the entire width of the card */
+            height: 100%; /* Make image fill the entire height of the card */
+            object-fit: cover; /* Changed to cover to fill the card without empty space */
+            /* Removed border-radius here as it's already on .logo-card and overflow:hidden handles clipping */
+        }
+
+        /* Content Area (for main content, ensures space for footer) */
+        .main-content-wrapper {
+            flex-grow: 1; /* Allows content to take up available space */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0; /* Add vertical padding for overall content */
+            margin-top: 60px;
+        }
+
+        /* Footer Styling (from your provided code) */
+         footer {
+      background-color: #212121;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #fbc02d;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+   
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-section {
+                margin-bottom: 20px;
+            }
+            .nav-links {
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            .nav-links a {
+                margin: 0 10px; /* Adjust margin for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+    <div class="navbar-left">
+      <div class="logo">
+        <img src="/images/logo.png" alt="Logo" />
+        <span>INPRA</span>
+      </div>
+      <div class="nav-links">
+        <a href="practice.html">Practice</a>
+        <a href="book-slot.html">Book a Slot</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="logout-btn" onclick="logout()">Logout</div>
+  </div>
+
+
+    <!-- Main Content Wrapper -->
+    <div class="main-content-wrapper">
+        <div class="container max-w-4xl w-full bg-white p-8 rounded-xl shadow-lg">
+            <header class="text-center mb-10">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-blue-700 mb-4">
+                    INPRAAA
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-2">
+                    <!-- Added a small margin to separate from the quote below -->
+                </p>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center">
+                    "Every interview is a chance to learn and grow."
+                </h2>
+            </header>
+
+            <section class="mb-12">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center">
+                    <!-- Company Logo Card: Accenture (now using acc.jpg) -->
+                    <a href="Acccompany page.html" class="logo-card rounded-lg border border-gray-200 hover:border-blue-400 cursor-pointer shadow-sm bg-gray-50">
+                        <img src="acc.jpg" alt="Accenture Logo">
+                    </a>
+                    <!-- Company Logo Card: Deloitte -->
+                    <a href="decompany.html" class="logo-card rounded-lg border border-gray-200 hover:border-blue-400 cursor-pointer shadow-sm bg-gray-50">
+                        <img src="de.avif" alt="Deloitte Logo">
+                    </a>
+    
+                    <!-- Company Logo Card: Google -->
+                    <a href="goocompany.html" class="logo-card rounded-lg border border-gray-200 hover:border-blue-400 cursor-pointer shadow-sm bg-gray-50">
+                        <img src="go.avif" alt="Google Logo">
+                    </a>
+                    <!-- Company Logo Card: Amazon -->
+                    <a href="amacompany.html" class="logo-card rounded-lg border border-gray-200 hover:border-blue-400 cursor-pointer shadow-sm bg-gray-50">
+                        <img src="ama.webp" alt="Amazon Logo">
+                    </a>
+                    
+                    <!-- Company Logo Card: Wipro -->
+                    <a href="wicompany.html" class="logo-card rounded-lg border border-gray-200 hover:border-blue-400 cursor-pointer shadow-sm bg-gray-50">
+                        <img src="wi.png" alt="Meta Logo">
+                    </a>
+                    
+                    <!-- Company Logo Card: Cognizent -->
+                    <a href="cogcompany.html" class="logo-card rounded-lg border border-gray-200 hover:border-blue-400 cursor-pointer shadow-sm bg-gray-50">
+                        <img src="cog.jpg" alt="Meta Logo">
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+     <footer>
+    &copy; 2025 Inpra. All rights reserved.
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms & Conditions</a>
+  </footer>
+  <script>
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      alert("You have been logged out!");
+      window.location.href = 'login.html';
+    }
+    
+    function logout() {
+        localStorage.removeItem("loggedInUser");
+        window.location.href = "login.html";
+      }
+    
+  </script>
+</body>
+</html>

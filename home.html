@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Home - Inline Interview Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+     .navbar {
+     height: 60px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 32px;
+      width: 32px;
+    }
+
+    .logo span {
+      font-size: 20px;
+      font-weight: bold;
+      color: #007bff;;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color:  #007bff;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+     .logout-btn {
+      cursor: pointer;
+      font-weight: 500;
+      color: #0d6efd;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .logout-btn:hover {
+      background: #e8eaf6;
+    }
+    
+    
+    .main {
+      flex: 1;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .card-link {
+      text-decoration: none;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+      min-height: 200px;
+      margin-top: 45px;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #007bff;;
+    }
+
+    .card p {
+      color: #555;
+    }
+
+    footer {
+      background-color: #212121;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #fbc02d;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+   
+   
+  </style>
+</head>
+<body>
+
+   <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <div class="logo">
+        <img src="/images/logo.png" alt="Logo" />
+        <span>INPRA</span>
+      </div>
+      <div class="nav-links">
+        <a href="practice.html">Practice</a>
+        <a href="book-slot.html">Book a Slot</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="logout-btn" onclick="logout()">Logout</div>
+  </div>
+
+  <div class="main">
+    <a href="book-slot.html" class="card-link">
+      <div class="card">
+        <h3>Book a Slot</h3>
+        <p>Schedule your interview time with real-time availability.</p>
+      </div>
+    </a>
+
+    <a href="practice.html" class="card-link">
+      <div class="card">
+        <h3>Practice Interviews</h3>
+        <p>Sharpen your skills with mock technical and HR rounds.</p>
+      </div>
+    </a>
+
+    <a href="contact.html" class="card-link">
+      <div class="card">
+        <h3>Contact Support</h3>
+        <p>Have questions? Reach out to our support team anytime.</p>
+      </div>
+    </a>
+  </div>
+
+
+ <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Inpra. All rights reserved.
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms & Conditions</a>
+  </footer>
+ 
+  <script>
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      alert("You have been logged out!");
+      window.location.href = 'login.html';
+    }
+    
+    function logout() {
+        localStorage.removeItem("loggedInUser");
+        window.location.href = "login.html";
+      }
+    
+  </script>
+
+</body>
+</html>

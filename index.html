@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inline Interview Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #f8f9fa, #e3f2fd);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background-color: #0d6efd;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .user-icon {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .user-icon img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    .user-icon img:hover {
+      transform: scale(1.1);
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background: white;
+      color: #000;
+      border-radius: 8px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+      display: none;
+      flex-direction: column;
+      min-width: 150px;
+      z-index: 100;
+    }
+
+    .dropdown a {
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #000;
+      border-bottom: 1px solid #eee;
+      transition: background 0.3s;
+    }
+
+    .dropdown a:hover {
+      background: #f1f1f1;
+    }
+
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero-content {
+      max-width: 700px;
+      animation: fadeInUp 1.2s ease-in-out;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 25px;
+      background: #0d6efd;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 5px 15px rgba(13,110,253,0.3);
+    }
+
+    .btn:hover {
+      background: #084298;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(13,110,253,0.4);
+    }
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.logo-img {
+  height: 36px;
+  width: 36px;
+  object-fit: cover;
+}
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+     <div class="logo">
+    <img src="/images/logo.png" alt="Company Logo" class="logo-img" />
+    <span> INPRA</span>
+  </div>
+    <div class="user-icon" onclick="toggleDropdown()">
+      <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User">
+      <div class="dropdown" id="userDropdown">
+        <a href="login.html">Sign In</a>
+        <a href="register.html">Register</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Inpra Interview Platform</h1>
+      <p>Practice. Prepare. Perform. Get ready for your tech interviews with dynamic tools, slot booking, and real-time practice.</p>
+      <button class="btn" onclick="goToRegister()">Get Started</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById('userDropdown');
+      dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    function goToRegister() {
+      window.location.href = "layout.html";
+    }
+
+    window.onclick = function(e) {
+      if (!e.target.closest('.user-icon')) {
+        document.getElementById('userDropdown').style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>
